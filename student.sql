@@ -8,5 +8,8 @@ CREATE TABLE students(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 create table courses(
-    id serial 
-)
+    id serial primary key,
+    title VARCHAR(100) not null,
+    credits int check (credits>0),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

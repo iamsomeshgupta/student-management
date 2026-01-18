@@ -13,3 +13,10 @@ create table courses(
     credits int check (credits>0),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+create table enrollments(
+    student_id int REFERENCES students(id) on delete CASCADE,
+    course_id int references courses(id) on delete CASCADE,
+    enrolled_at TIMESTAMP DEFAULT CURRENT TIMESTAMP,
+    grade CHAR(2),
+    PRIMARY KEY (student_id,course_id)
+);
